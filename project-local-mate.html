@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Local Mate — Project Case Study</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Noto+Sans+KR:wght@400;600;700;900&display=swap');
+:root{--bg:#030504;--green:#5cff87;--dim:#91a596;--line:rgba(92,255,135,.18)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:#eefbf0;font-family:"Noto Sans KR",sans-serif;overflow-x:hidden}
+#matrix{position:fixed;inset:0;width:100%;height:100%;opacity:.28;z-index:-2}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:10;background:radial-gradient(circle at center,transparent 35%,rgba(0,0,0,.65)),repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 4px)}
+nav{position:fixed;top:0;left:0;right:0;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;z-index:20;background:rgba(3,5,4,.65);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.logo{font:700 14px "Space Mono";color:var(--green);letter-spacing:.12em}.back{font:12px "Space Mono";color:#d7e9da;text-decoration:none;border:1px solid var(--line);padding:10px 15px;border-radius:99px}.back:hover{background:var(--green);color:#031006}
+.hero{min-height:100vh;display:grid;place-items:center;text-align:center;padding:110px 20px 80px}
+.kicker{font:700 11px "Space Mono";color:var(--green);letter-spacing:.22em;margin-bottom:24px}
+h1{font-size:clamp(64px,13vw,170px);line-height:.82;letter-spacing:-.08em;margin:0;text-shadow:0 0 35px rgba(92,255,135,.18)}
+.hero p{max-width:650px;margin:32px auto;color:#9cad9f;font-size:16px;line-height:1.9}
+.prompt{font:700 12px "Space Mono";color:#68816e;margin-top:55px}.prompt span{animation:blink 1s infinite}@keyframes blink{50%{opacity:0}}
+.wrap{width:min(1100px,calc(100% - 40px));margin:auto}
+section{padding:110px 0;border-top:1px solid rgba(255,255,255,.06)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+.label{font:700 11px "Space Mono";color:var(--green);letter-spacing:.15em;margin-bottom:14px}
+h2{font-size:clamp(36px,5vw,64px);line-height:1;letter-spacing:-.06em;margin:0 0 22px}
+p{color:var(--dim);line-height:1.85}.terminal{border:1px solid var(--line);background:rgba(0,20,7,.7);border-radius:18px;padding:24px;font:13px/2 "Space Mono";box-shadow:0 0 50px rgba(92,255,135,.05)}
+.terminal b{color:var(--green)}.chips{display:flex;gap:9px;flex-wrap:wrap;margin-top:25px}.chip{border:1px solid var(--line);padding:8px 12px;border-radius:99px;font:11px "Space Mono";color:#b9cdbd}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}.metric{border:1px solid var(--line);padding:22px;border-radius:14px;background:rgba(255,255,255,.025)}.metric strong{font:700 30px "Space Mono";color:var(--green);display:block}.metric span{font-size:11px;color:#7d9182}
+.process{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:45px}.step{border:1px solid var(--line);border-radius:18px;padding:25px;background:rgba(0,15,6,.65)}.step b{font:700 12px "Space Mono";color:var(--green)}.step h3{margin:15px 0 7px}.step p{font-size:13px;margin:0}
+.cta{text-align:center;padding:140px 20px}.cta h2{max-width:800px;margin:auto}.btn{display:inline-block;margin-top:30px;background:var(--green);color:#031006;padding:14px 22px;border-radius:99px;text-decoration:none;font-weight:900}.btn:hover{box-shadow:0 0 35px rgba(92,255,135,.35);transform:translateY(-2px)}
+footer{text-align:center;border-top:1px solid var(--line);padding:30px;color:#526456;font:11px "Space Mono"}
+@media(max-width:750px){.grid,.process{grid-template-columns:1fr}.metrics{grid-template-columns:1fr 1fr}.grid{gap:35px}section{padding:80px 0}}
+</style>
+</head>
+<body>
+<canvas id="matrix"></canvas>
+<nav><a class="logo" href="index.html">JM / WORK</a><a class="back" href="index.html">← BACK TO PROFILE</a></nav>
+<header class="hero">
+  <div>
+    <div class="kicker">SELECTED WORK / 001</div>
+    <h1>LOCAL<br>MATE.</h1>
+    <p>지역에서 혼자 살아가는 사람에게 필요한 순간, 가장 가까운 도움을 연결하는 생활·응급 케어 서비스 콘셉트.</p>
+    <div class="prompt">CLICK ANYWHERE TO CHANGE THE FLOW <span>_</span></div>
+  </div>
+</header>
+<section><div class="wrap grid">
+  <div><div class="label">01 / OVERVIEW</div><h2>혼자여도,<br>혼자가 아니게.</h2><p>Local Mate는 지방 1인가구의 고립과 응급상황이라는 문제에서 출발한 서비스입니다. 위험 신호를 감지하고, 상황에 맞는 대응을 연결하며, 평소에는 지역 생활매니저가 일상의 연결을 만들어 줍니다.</p><div class="chips"><span class="chip">SERVICE DESIGN</span><span class="chip">UI / UX</span><span class="chip">BRANDING</span><span class="chip">WEB</span></div></div>
+  <div class="terminal"><div><b>$ problem</b></div><div>01. 고립 → 일상에서 관계가 끊어진다.</div><div>02. 응급 → 도움을 요청할 시간이 부족하다.</div><div>03. 지역 → 가까운 도움을 찾기 어렵다.</div><br><div><b>$ solution</b></div><div>감지 → 판단 → 지역 연결 → 대응</div></div>
+</div></section>
+<section><div class="wrap"><div class="label">02 / IMPACT</div><h2>작은 신호를<br>놓치지 않는 시스템.</h2><div class="metrics"><div class="metric"><strong>24/7</strong><span>RISK MONITORING</span></div><div class="metric"><strong>3-STEP</strong><span>EMERGENCY RESPONSE</span></div><div class="metric"><strong>LOCAL</strong><span>MATE NETWORK</span></div></div></div></section>
+<section><div class="wrap"><div class="label">03 / PROCESS</div><h2>From signal<br>to action.</h2><div class="process">
+<div class="step"><b>01 / DETECT</b><h3>위험 신호 감지</h3><p>웨어러블·앱 데이터를 기반으로 평소와 다른 상태를 확인합니다.</p></div>
+<div class="step"><b>02 / DECIDE</b><h3>위험도 판단</h3><p>관찰·주의·응급 단계로 분류하고 상황에 맞는 대응 시나리오를 선택합니다.</p></div>
+<div class="step"><b>03 / CONNECT</b><h3>가까운 도움 연결</h3><p>지역메이트, 보호자, 기관 또는 이동 수단을 순서에 따라 연결합니다.</p></div>
+</div></div></section>
+<section><div class="wrap grid">
+<div><div class="label">04 / MY ROLE</div><h2>아이디어를<br>경험으로.</h2><p>문제 정의부터 서비스 구조, 브랜드 방향, 랜딩페이지 인터랙션까지 하나의 사용자 경험으로 연결하는 것을 목표로 제작했습니다.</p></div>
+<div class="terminal"><div><b>ROLE</b> Creative Developer</div><div><b>STACK</b> HTML / CSS / JavaScript</div><div><b>FOCUS</b> UX · Interaction · Storytelling</div><div><b>YEAR</b> 2026</div></div>
+</div></section>
+<section class="cta"><div class="kicker">NEXT PROJECT</div><h2>더 많은 작업물을<br>살펴보세요.</h2><a class="btn" href="index.html#work">VIEW ALL PROJECTS ↗</a></section>
+<footer>© 2026 JUNGMIN — LOCAL MATE CASE STUDY</footer>
+<script>
+const c=document.getElementById('matrix'),x=c.getContext('2d');
+let w,h,cols,drops,font=15,chars="01アイウエオカキクケコ+-*/<>[]{}#$%";
+function size(){w=c.width=innerWidth;h=c.height=innerHeight;cols=Math.floor(w/font);drops=Array(cols).fill(0).map(()=>Math.random()*-50)}
+function draw(){x.fillStyle='rgba(3,5,4,.12)';x.fillRect(0,0,w,h);x.font=font+'px monospace';for(let i=0;i<drops.length;i++){let ch=chars[Math.floor(Math.random()*chars.length)];x.fillStyle=Math.random()>.96?'#dffff0':'#45d86e';x.fillText(ch,i*font,drops[i]*font);if(drops[i]*font>h&&Math.random()>.975)drops[i]=0;drops[i]+=.7}requestAnimationFrame(draw)}
+addEventListener('resize',size);addEventListener('click',()=>{font=Math.random()*12+8;size()});size();draw();
+</script>
+</body></html>
